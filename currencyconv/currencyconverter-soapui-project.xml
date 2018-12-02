@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="47ef7de4-5cba-41cf-a416-cb7bf6a7b2e1" activeEnvironment="Default" name="currencyconverter" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="836fd835-2992-46ab-9083-9277a6015ecc" wsaVersion="NONE" name="CurrencyconvServiceServiceSoapBinding" type="wsdl" bindingName="{http://soap.currencyconv.currency.com/}CurrencyconvServiceServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/user/service?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/user/service?WSDL"><con:part><con:url>http://localhost:8080/user/service?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="CurrencyconvServiceService" targetNamespace="http://soap.currencyconv.currency.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.currencyconv.currency.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://soap.currencyconv.currency.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getCurrencyResult" type="tns:getCurrencyResult"/>
+      <xs:element name="getCurrencyResultResponse" type="tns:getCurrencyResultResponse"/>
+      <xs:complexType name="getCurrencyResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCurrencyResultResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:convert"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="convert">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="country" type="xs:string"/>
+          <xs:element minOccurs="0" name="currency" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getCurrencyResult">
+    <wsdl:part element="tns:getCurrencyResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCurrencyResultResponse">
+    <wsdl:part element="tns:getCurrencyResultResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CurrencyconvService">
+    <wsdl:operation name="getCurrencyResult">
+      <wsdl:input message="tns:getCurrencyResult" name="getCurrencyResult"></wsdl:input>
+      <wsdl:output message="tns:getCurrencyResultResponse" name="getCurrencyResultResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CurrencyconvServiceServiceSoapBinding" type="tns:CurrencyconvService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCurrencyResult">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCurrencyResult">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCurrencyResultResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CurrencyconvServiceService">
+    <wsdl:port binding="tns:CurrencyconvServiceServiceSoapBinding" name="CurrencyconvServicePort">
+      <soap:address location="http://localhost:8080/user/service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/user/service</con:endpoint></con:endpoints><con:operation id="2af8b160-376b-4410-8bfa-7a6a676e2aa6" isOneWay="false" action="" name="getCurrencyResult" bindingOperationName="getCurrencyResult" type="Request-Response" outputName="getCurrencyResultResponse" inputName="getCurrencyResult" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="690fc2ff-ebef-46ff-9a80-b2686fcac427" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/user/service</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.currencyconv.currency.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getCurrencyResult>\r
+         <!--Optional:-->\r
+         <arg0>Malaysia</arg0>\r
+      </soap:getCurrencyResult>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.currencyconv.currency.com/CurrencyconvService/getCurrencyResult"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
